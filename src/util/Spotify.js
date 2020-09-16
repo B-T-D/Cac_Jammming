@@ -80,7 +80,6 @@ const Spotify = {
         if (!name || !tracks.length) {
             return; // Stop execution if either arg is missing.
         }
-
         const accessToken = Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken}` };
         let userId;
@@ -100,7 +99,7 @@ const Spotify = {
                     headers: headers,
                     method: 'POST',
                     body: JSON.stringify({
-                        "uris": ["spotify:track:6URlKrAIlJJwHnHxxXWywt"]
+                        "uris": tracks.map(element => `spotify:track:${element}`)
                     })
                 });
             });
