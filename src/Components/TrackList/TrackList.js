@@ -6,8 +6,14 @@ export class TrackList extends React.Component {
     render() {
         return(
             <div className="TrackList">
-                {this.props.tracks.map(track =>
-                    <Track track={track}/>)}
+                {this.props.tracks.map(trackElement =>
+                    <Track
+                        track={trackElement}
+                        isRemoval={this.props.isRemoval}
+                        onAdd={this.props.onAdd}
+                        onRemove={this.props.onRemove}
+
+                    />)}
             </div>
         );
     }
