@@ -1,10 +1,7 @@
-
-
 const clientId = 'cb4a93c970ba41b499692575fddae4fa';
 const redirectUri = 'http://localhost:3000/';
 
 let accessToken; // The user's access token.
-
 
 const Spotify = {
     /** getAccessToken:
@@ -29,7 +26,6 @@ const Spotify = {
             return accessToken;
         } else {
             const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
-            console.log(accessUrl);
             window.location = accessUrl; // To redirect.
         }
     },
@@ -76,7 +72,6 @@ const Spotify = {
     * @param {array}: Array of track URIs for the tracks to put on the playlist.
     */
     savePlaylist(name, tracks) {
-        console.log(`tracks is ${tracks}`);
         if (!name || !tracks.length) {
             return; // Stop execution if either arg is missing.
         }
@@ -94,7 +89,6 @@ const Spotify = {
             }).then(response => response.json()
             ).then(jsonResponse => {
                 const playlistId = jsonResponse.id;
-                console.log(`playlistId is ${playlistId}`);
                 return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
                     headers: headers,
                     method: 'POST',
