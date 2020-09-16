@@ -84,7 +84,6 @@ const Spotify = {
         const accessToken = Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken}` };
         let userId;
-
         return fetch('https://api.spotify.com/v1/me', {headers: headers}
         ).then(response => response.json()
         ).then(jsonResponse => {
@@ -100,7 +99,9 @@ const Spotify = {
                 return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
                     headers: headers,
                     method: 'POST',
-                    body: JSON.stringify({uris: tracks})
+                    body: JSON.stringify({
+                        "uris": ["spotify:track:6URlKrAIlJJwHnHxxXWywt"]
+                    })
                 });
             });
         });
