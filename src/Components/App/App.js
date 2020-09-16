@@ -30,18 +30,8 @@ export class App extends React.Component {
                 id: "iuoiuoiu"}
             ],
 
-            playlistName: "myHardcodedPlaylistName",
-            playlistTracks: [
-                {name: "myName",
-                artist: "myArtist",
-                album: "myAlbum",
-                id: "myId"},
-                {name: "Initially in playlist but not search results",
-                artist: "baz",
-                album: "bar",
-                id: "thorp",
-                }
-            ],
+            playlistName: "New Playlist",
+            playlistTracks: [],
         }
 
         // --- Method Binds ---
